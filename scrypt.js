@@ -1,19 +1,23 @@
-let items = [];
+var items = ["tissue","napkin"];
 
 const check = () => {
     let newItem = document.getElementById("i").ariaValueMax;
     let bool;
-    let message; 
+    document.getElementById("h").innerHTML = "Add Items To Cart"
 
-    items.map((item,index)=>{
-        (item == newItem) ? bool = false : bool = true;
-    });
+    console.log("check 1");
+    for(let i=0;i<items.length;i++){
+        bool = ((items[i] == newItem) ? false : true);
+    }
 
-    (bool) ? message = "Item has Been Added" : "Item Already exists";
-
-    items.push(newItem);
-
-    document.getElementById("h").innerHTML = message;
+    console.log(bool);
+    console.log("check 4");
+    
+    if(bool){
+        items.push(newItem);
+    }else{
+        document.getElementById("h").innerHTML = "Item Allready Present in Cart";
+    }
 
     console.log(items);
 
